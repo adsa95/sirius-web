@@ -24,14 +24,14 @@ app.controller('MainController', ['$scope', '$http', '$mdToast', function($scope
             $http.get(BASEPATH + '/configs/' + $scope.siriusId).then(function(res){
                 let config = res.data;
                 for (var i = 0; i < $scope.extensions.length; i++) {
-                    if(config.config.hasOwnProperty($scope.extensions[i].name)){
+                    if(config.extensions.hasOwnProperty($scope.extensions[i].name)){
                         $scope.extensions[i].selected = true;
 
                         if(Array.isArray($scope.extensions[i].config)){
                             for (var j = 0; j < $scope.extensions[i].config.length; j++) {
                                 let key = $scope.extensions[i].config[j].key;
-                                if(config.config[$scope.extensions[i].name].hasOwnProperty(key)){
-                                    $scope.extensions[i].config[j].value = config.config[$scope.extensions[i].name][key];
+                                if(config.extensions[$scope.extensions[i].name].hasOwnProperty(key)){
+                                    $scope.extensions[i].config[j].value = config.extensions[$scope.extensions[i].name][key];
                                 }
                             }
                         }
