@@ -42,7 +42,7 @@
         <md-content>
             <md-toolbar flex layout="row" layout-align="center">
                 <div class="md-toolbar-tools layout-max-width">
-                    <h2>Sirius - Slack plugins</h2>
+                    <h2>Sirius - Slack extensions</h2>
                 </div>
             </md-toolbar>
         </md-content>
@@ -62,18 +62,18 @@
             <md-card class="layout-max-width">
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">Step 2: Choose plugins</span>
+                        <span class="md-headline">Step 2: Choose extensions</span>
                     </md-card-title-text>
                 </md-card-title>
                 <md-list>
                     <md-divider></md-divider>
-                    <md-list-item ng-repeat="plugin in plugins" class="md-no-proxy">
-                        <md-checkbox ng-model="plugin.selected"></md-checkbox>
+                    <md-list-item ng-repeat="extension in extensions" class="md-no-proxy">
+                        <md-checkbox ng-model="extension.selected"></md-checkbox>
                         <div flex>
-                            <h3>{{plugin.name}}</h3>
-                            <p>{{plugin.description}}</p>
-                            <b ng-if="plugin.config !== null">Plugin options:</b>
-                            <div class="options" ng-repeat="option in plugin.config" ng-init="option.value = option.value ? option.value : option.default" flex>
+                            <h3>{{extension.name}}</h3>
+                            <p>{{extension.description}}</p>
+                            <b ng-if="extension.config !== null">Extension options:</b>
+                            <div class="options" ng-repeat="option in extension.config" ng-init="option.value = option.value ? option.value : option.default" flex>
                                 <md-switch ng-if="option.type == 'bool'" ng-model="option.value">{{::option.key}}</md-switch>
                                 <md-input-container ng-if="option.type == 'string'" flex>
                                     <input ng-model="option.value" placeholder="{{::option.key}}">
